@@ -1,9 +1,9 @@
 #!/bin/bash
 
-person1=$1
-person2=$2
+PERSON1=$1
+PERSON2=$2
 
-echo "$person1: hey $person2, we are going to blast you !"
-echo "$person2: YES $person1, Please. you are welcome"
-echo "$person1: hey, $person2 im serious"
-echo "$person2: YES, We are also serious"s
+echo "$PERSON1: hey $PERSON2, we are going to blast you !"
+echo "$PERSON2: YES , Please. you are welcome"
+echo "$PERSON1: hey, $PERSON2 im serious"
+echo "$PERSON2: YES, We are also serious"

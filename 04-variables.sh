@@ -5,7 +5,7 @@
 # echo "Time is: $TIMESTAMP"
 
 
-START_TIME=$(date)
+START_TIME=$(date +%s)
 sleep 2
 END_TIME=$(date +%s)
 

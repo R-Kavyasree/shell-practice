@@ -8,3 +8,9 @@ SUM=$((NUM1+$NUM2))
 echo "Sum of the number : $SUM"
 
 
+
+#arrays - 
+
+Movies=("RRR" "Tiger" "lion")
+echo "Movies are : ${Movies[@]}"
+echo "first movie is: ${Movies[1]}"

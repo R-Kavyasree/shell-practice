@@ -1,19 +1,16 @@
 #!/bin/bash
 
 echo "All variables passed to script: $@"
-echo "All variables passed to script: $#"
-echo "this is special variables session"
-echo " First variable :$1"
-echo " second variable :$2"
-echo "script name :$0"
-echo "who is running:$user"
-echo "which directory :$pwd"
-echo "Home directory:$Home"
-echo "PID of the current running script : $$"
-echo 
+echo "Number of variables passed: $#"
+echo "First variable: $1"
+echo "Script name: $0"
+echo "Who is running this: $USER"
+echo "Which directory: $PWD"
+echo "Home directory: $HOME"
+echo "PID of the current script: $$"
 sleep 5 &
-echo "PID Of background command running :$!"
+echo "PID of the background command running just now: $!"
 wait $!
- echo :line number $lineNo"
- echo "Random number $Random"
- echo $?
+echo "Line number: $LINENO"
+echo "Script executed in $SECONDS seconds"
+echo "Random number: $RANDOM"

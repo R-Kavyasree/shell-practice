@@ -15,3 +15,15 @@ wait $!
 echo "Line number :$LINENO"
 echo "script executed in $SECONDS seconds"
 echo "Random number: $RANDOM"
+
+
+
+echo "Reached mysql installation"
+
+if dnf install mysql -y; then
+    echo "Installing mysql success"
+else
+    echo "Installing mysql failed"
+    exit 1
+fi
+

@@ -9,7 +9,8 @@ exit 1
 
 fi
 #echo "I am continuing"
-
+echo "installing mysql"
+dnf status mysql -y
 
 if [ $? -ne 0 ]; then
 echo "installing my sql is failed"

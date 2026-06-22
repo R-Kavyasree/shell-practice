@@ -8,7 +8,7 @@ echo "Please run this script with root access"
 exit 1
 
 fi
-echo "I am continuing"
+#echo "I am continuing"
 
 
 if [$? -ne 0;]then

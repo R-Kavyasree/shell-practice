@@ -17,4 +17,5 @@ echo "installing my sql is failed"
 exit 1
 else
 echo "Installing my sql is success"
+fi
 

@@ -17,9 +17,11 @@ echo "script executed in $SECONDS seconds"
 echo "Random number: $RANDOM"
 
 
-
+dnf list installed mysql
+if  [ $? -eq 0 ]; then
+echo "Mysql is already installed"
+else
 echo "Reached mysql installation"
-
 if sudo dnf install mysql -y; then
     echo "Installing mysql success"
 else

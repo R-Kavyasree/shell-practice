@@ -30,6 +30,7 @@ if [ $? -eq 0 ]; then
 fi
 fi
 
+dnf list installed mysql
 if [ $? -eq 0 ]; then
  echo "Nginx is already installed ..Skipping"
 

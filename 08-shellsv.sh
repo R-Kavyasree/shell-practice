@@ -30,3 +30,16 @@ else
 fi
 fi
 
+dnf list installed nginx
+if  [ $? -eq 0 ]; then
+echo "nginx is already installed"
+else
+
+if sudo dnf install nginx -y; then
+    echo "Installing nginx success"
+else
+    echo "Installing nginx failed"
+    exit 1
+fi
+fi
+

@@ -10,6 +10,22 @@ fi
 
 # echo "I am continuing.....,"
 
+#nginx check 
+#first arg - what are you trying to install
+#second arg - exit code
+
+VALIDATE(){
+    if [ $2 -ne  0 ]; then
+  echo "Intallinf $1  is ... Failed"
+  exit 1
+
+  else
+
+  echo "Installing $1 is ... Success"
+
+fi
+}
+
 dnf list installed mysql
 
 if [ $? -eq 0 ]; then
@@ -18,18 +34,9 @@ if [ $? -eq 0 ]; then
  else
  echo "Installing mysql"
  dnf install mysql -y
-
- if [ $? -ne  0 ]; then
-  echo "Intallinf mysql is ... Failed"
-  exit 1
-
-  else
-
-  echo "Installing mysql is ... Success"
-
+ VALIDATE MySQL $?
+ 
 fi
-fi
-#nginx check 
 
 dnf list installed nginx
 if [ $? -eq 0 ]; then
@@ -38,14 +45,5 @@ if [ $? -eq 0 ]; then
  else
  echo "Installing Nginx"
  dnf install nginx -y
-
- if [ $? -ne  0 ]; then
-  echo "Intalling Nginx is ... Failed"
-  exit 1
-
-  else
-
-  echo "Installing Nginx is ... Success"
-
-fi
+  VALIDATE MySQL $?
 fi

@@ -20,11 +20,11 @@ if [ $USERID -ne 0 ]; then
     
     }
 
-    for package in $E@
+    for package in $@
 
     do 
        echo "Intalling $package"
-       dnf list lintalled $package
+       dnf list intalled $package &>> $LOGS_FILE
       if [ $? -ne 0 ];then
         dnf install package -yy &>> $LOGS_FILE
         VALIDATE "Installing $package" $?
@@ -32,5 +32,5 @@ if [ $USERID -ne 0 ]; then
         else 
         echo "$package is already installed....skipping"
         fi
-        
+
         done

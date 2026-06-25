@@ -17,17 +17,17 @@ fi
 
 VALIDATE(){
     if [ $2 -ne  0 ]; then
-  echo "Intallinf $1  is ... Failed"
+  echo "Intalling $1  is ... Failed"  | tee -a $LOGS_FILE
   exit 1
   else
-  echo "Installing $1 is ... Success"
+  echo "Installing $1 is ... Success" | tee -a $LOGS_FILE
 
 fi
 }
 dnf list installed mysql &>> $LOGS_FILE
 
 if [ $? -eq 0 ]; then
- echo "Mysqsl is already installed ..Skipping"
+ echo "Mysqsl is already installed ..Skipping" | tee -a $LOGS_FILE
 
  else
  echo "Installing mysql"
@@ -36,7 +36,7 @@ if [ $? -eq 0 ]; then
 fi
 dnf list installed nginx &>> $LOGS_FILE
 if [ $? -eq 0 ]; then
- echo "Nginx is already installed ..Skipping"
+ echo "Nginx is already installed ..Skipping" | tee -a $LOGS_FILE
 
  else
  echo "Installing Nginx"

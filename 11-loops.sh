@@ -2,7 +2,7 @@
 
 USERID =$(id -u)
 LOGS_DIR=/var/logs/shell-script
-LOGS_FILE="&LOGS_DIR/$0.log"
+LOGS_FILE="$LOGS_DIR/$0.log"
 
 if [ $USERID -ne 0 ]; then
   echo "Please run this script with root access"
@@ -24,9 +24,9 @@ if [ $USERID -ne 0 ]; then
 
     do 
        echo "Intalling $package"
-       dnf list intalled $package &>> $LOGS_FILE
+       dnf list installed $package &>> $LOGS_FILE
       if [ $? -ne 0 ];then
-        dnf install package -yy &>> $LOGS_FILE
+        dnf install $package -y &>> $LOGS_FILE
         VALIDATE "Installing $package" $?
 
         else 

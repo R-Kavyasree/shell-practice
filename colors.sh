@@ -5,7 +5,7 @@ LOGS_FILE="$LOGS_DIR/$0.log"
 TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")
 R="/e[31m"
 G="/e[32m"
-Y="/e[33m"
+Y="/e[38m"
 N="\e[0m"
 
 
@@ -24,11 +24,11 @@ fi
 
 VALIDATE(){
     if [ $2 -ne  0 ]; then
-  echo -e $TIMESTAMP [ERROR] "Intalling $1  is ... $R Failed $N"  | tee -a  $LOGS_FILE  
+  echo -e $TIMESTAMP [ERROR] "Intalling $1  is ... $R Failed"  | tee -a  $LOGS_FILE  
 
   exit1
   else
-  echo -e $TIMESTAMP [info] "Installing $1 is ... $G Success $N" | tee -a $LOGS_FILE 
+  echo -e $TIMESTAMP [info] "Installing $1 is ... $G Success" | tee -a $LOGS_FILE 
 fi
 }
 
@@ -40,7 +40,7 @@ do
   dnf install $package -y &>> $LOGS_FILE
   VALIDATE $? "iNSTALLING $package" $?
   else
- echo -e $TIMESTAMP [info]"$package alread installed... $Y Skipping $N"
+ echo -e $TIMESTAMP [info]"$package alread installed... $Y Skipping"
   fi
 
 done

@@ -26,5 +26,5 @@ fi
 
 for package in $@
 do
-  echo "Installing $ paclage"
+  echo "Installing $ package"
 Done

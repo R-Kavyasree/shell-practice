@@ -1,7 +1,7 @@
 #!/bin/bash
 USERID=$(id -u)
 LOGS_DIR=/var/log/shell-script
-LOGS_FILE="$LOGS_DIR/$0.LOG"
+LOGS_FILE="$LOGS_DIR/$0.log"
 #check root access or not 
 
 if [ $USERID -ne 0 ]; then
@@ -26,5 +26,5 @@ fi
 
 for package in $@
 do
-  echo "Installing $ package"
-Done
+  echo "Installing $package"
+done

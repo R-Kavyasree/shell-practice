@@ -2,6 +2,7 @@
 USERID=$(id -u)
 LOGS_DIR=/var/log/shell-script
 LOGS_FILE="$LOGS_DIR/$0.log"
+TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")
 #check root access or not 
 
 if [ $USERID -ne 0 ]; then
@@ -17,10 +18,10 @@ fi
 
 VALIDATE(){
     if [ $2 -ne  0 ]; then
-  echo "Intalling $1  is ... Failed"
+  echo $TIMESTAMP [ERROR] "Intalling $1  is ... Failed" | tee -a $LOGS_FILE  
   exit 1
   else
-  echo "Installing $1 is ... Success"
+  echo $TIMESTAMP [info] "Installing $1 is ... Success" | tee -a $LOGS_FILE 
 fi
 }
 
@@ -32,7 +33,7 @@ do
   dnf install $package -y &>> $LOGS_FILE
   VALIDATE $? "iNSTALLING $package" $?
   else
-  echo "$package alread installed... Skipping"
+ echo $TIMESTAMP [info]"$package alread installed... Skipping"
   fi
 
 done

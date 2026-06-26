@@ -24,11 +24,11 @@ fi
 
 VALIDATE(){
     if [ $2 -ne  0 ]; then
-  echo $TIMESTAMP [ERROR] "Intalling $1  is ... $R Failed $N"  | tee -a  $LOGS_FILE  
+  echo -e $TIMESTAMP [ERROR] "Intalling $1  is ... $R Failed $N"  | tee -a  $LOGS_FILE  
 
   exit1
   else
-  echo $TIMESTAMP [info] "Installing $1 is ... $G Failed $N" | tee -a $LOGS_FILE 
+  echo -e $TIMESTAMP [info] "Installing $1 is ... $G Failed $N" | tee -a $LOGS_FILE 
 fi
 }
 
@@ -40,7 +40,7 @@ do
   dnf install $package -y &>> $LOGS_FILE
   VALIDATE $? "iNSTALLING $package" $?
   else
- echo $TIMESTAMP [info]"$package alread installed... $Y Skipping $N"
+ echo -e $TIMESTAMP [info]"$package alread installed... $Y Skipping $N"
   fi
 
 done

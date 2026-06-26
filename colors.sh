@@ -28,7 +28,7 @@ VALIDATE(){
 
   exit1
   else
-  echo -e $TIMESTAMP [info] "Installing $1 is ... $G Failed $N" | tee -a $LOGS_FILE 
+  echo -e $TIMESTAMP [info] "Installing $1 is ... $G Success $N" | tee -a $LOGS_FILE 
 fi
 }
 

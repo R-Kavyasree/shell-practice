@@ -1,37 +1,30 @@
 #!/bin/bash
-
 USERID=$(id -u)
-mkdir -p /var/log/shell-script
 LOGS_DIR=/var/log/shell-script
-LOGS_FILE="$LOGS_DIR/$0.log"
+LOGS_FILE="$LOGS_DIR/$0.LOG"
+#check root access or not 
 
 if [ $USERID -ne 0 ]; then
-  echo "Please run this script with root access"
-  exit 1
-  fi
-
-  VALIDATE()
-{
-    if [ $2 -ne 0 ]; then
-    echo "Installing &1 is ....Failed"
+    echo "Please run this script with root access"
     exit 1
-    else
-    echo "Installing $1 is ..... success"
-    fi
-    
-    }
+fi
 
-    for package in $@
+# echo "I am continuing.....,"
 
-    do 
-       echo "Intalling $package"
-       dnf list installed $package &>> $LOGS_FILE
-      if [ $? -ne 0 ];then
-        dnf install $package -y &>> $LOGS_FILE
-        VALIDATE "Installing $package" $?
+#nginx check 
+#first arg - what are you trying to install
+#second arg - exit code
 
-        else 
-        echo "$package is already installed....skipping"
-        fi
+VALIDATE(){
+    if [ $2 -ne  0 ]; then
+  echo "Intalling $1  is ... Failed"
+  exit 1
+  else
+  echo "Installing $1 is ... Success"
+fi
+}
 
-        done
+for package in $@
+do
+  echo "Installing $ paclage"
+Done

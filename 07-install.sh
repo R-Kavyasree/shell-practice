@@ -18,14 +18,11 @@ VALIDATE(){
     if [ $2 -ne  0 ]; then
   echo "Intallinf $1  is ... Failed"
   exit 1
-
   else
-
   echo "Installing $1 is ... Success"
 
 fi
 }
-
 dnf list installed mysql
 
 if [ $? -eq 0 ]; then
@@ -34,10 +31,8 @@ if [ $? -eq 0 ]; then
  else
  echo "Installing mysql"
  dnf install mysql -y
- VALIDATE MySQL $?
- 
+ VALIDATE MySQL $? 
 fi
-
 dnf list installed nginx
 if [ $? -eq 0 ]; then
  echo "Nginx is already installed ..Skipping"
